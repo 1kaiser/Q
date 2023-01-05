@@ -109,3 +109,14 @@ def show_image(argu):
 
 show_image(metrics['logits'])
 ```
+Zip a folder or file
+```
+%cd {total_files}
+%cd ..
+!zip -r folder.zip {total_files}
+```
+
+Unzip a folder or file
+```
+!unzip /content/archive.zip #unzipping the flower images from archive..
+```
