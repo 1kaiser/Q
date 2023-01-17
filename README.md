@@ -87,12 +87,17 @@ finalOutput.mp4
 -c:v copy -c:a copy -map 0:v:0 -map 1:a:0 \
 OUTPUT_FILE.mp4
 ```
-Clean display output
+Clean display output Colab
 ```
 from google.colab import output
+output.clear()
 
 ```
-
+Clean display output Kaggle
+```
+from IPython.display import clear_output
+clear_output()
+```
 create horizontal image array
 ```
 import cv2
@@ -119,4 +124,10 @@ Zip a folder or file
 Unzip a folder or file
 ```
 !unzip /content/archive.zip #unzipping the flower images from archive..
+```
+Kaggle file download
+```
+%cd /kaggle/working
+from IPython.display import FileLink
+FileLink(r'ckpts/checkpoint_50/checkpoint')
 ```
