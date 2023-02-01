@@ -2,7 +2,9 @@
 
 google sheets Regular expression
 ```
-=CONCATENATE(REGEXEXTRACT(B2,"[0-9]*.[0-9]{6}"),",",REGEXEXTRACT(C2,"[0-9]*.[0-9]{6}")) >>for 31.4754428611 >> 31.475442 << 6 digits after decimal
+=CONCATENATE(REGEXEXTRACT(B2,"[0-9]*.[0-9]{6}"),",",REGEXEXTRACT(C2,"[0-9]*.[0-9]{6}")) 
+
+>>for 31.4754428611 >> 31.475442 << 6 digits after decimal
 ```
 Connect google drive
 ```
