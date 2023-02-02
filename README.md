@@ -377,15 +377,36 @@ myFile.Upload()
 <tr>
 <td>
 
-[OBJ to GLB 3D asset conversion](https://github.com/CesiumGS/obj2gltf)
+OBJ to GLB 3D asset conversion including support for React
+copy from `/drive` to `/contents` folder
 ```
 !cp -r /content/drive/MyDrive/3D/20220714_132152.obj /content
 ```
+install [`obj2gltf`](https://github.com/CesiumGS/obj2gltf)
 ```
 !npm install -g obj2gltf
 ```
 ```
-!obj2gltf -i /content/20220714_132152.obj/20220714_132152.obj -o /content/20220714_132152.obj/20220714_132152.glb # >> !obj2gltf -i {input}.obj -o {output}.glb
+input = '/content/20220714_132152.obj/20220714_132152.obj'
+output = '/content/20220714_132152.obj/20220714_132152.glb'
+
+!npx obj2gltf -i {input} -o {output} # >> !obj2gltf -i {input}.obj -o {output}.glb
+
+```
+install [`gltfjsx`](https://github.com/pmndrs/gltfjsx) 
+```
+!npm i gltfjsx
+```
+the `--transform, -T`     Transform the asset for the web (draco, prune, resize)
+```
+!npx gltfjsx {output} --transform
+```
+```
+!pip install trimesh
+import numpy as np
+import trimesh
+mesh = trimesh.load_mesh('/content/20220714_132152-transformed.glb')
+mesh.show()
 ```
 </td>
 </tr>
