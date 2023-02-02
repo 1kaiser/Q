@@ -370,3 +370,24 @@ myFile.Upload()
 </tr>
 </tbody>
 </table>
+
+
+<table>
+<thead>
+<tr>
+<td>
+
+[OBJ to GLB 3D asset conversion](https://github.com/CesiumGS/obj2gltf)
+```
+!cp -r /content/drive/MyDrive/3D/20220714_132152.obj /content
+```
+```
+!npm install -g obj2gltf
+```
+```
+!obj2gltf -i /content/20220714_132152.obj/20220714_132152.obj -o /content/20220714_132152.obj/20220714_132152.glb # >> !obj2gltf -i {input}.obj -o {output}.glb
+```
+</td>
+</tr>
+</tbody>
+</table>
