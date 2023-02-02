@@ -1,16 +1,42 @@
 # Q
 
+
+<table>
+<thead>
+<tr>
+<td>
+
 google sheets Regular expression
 ```
 =CONCATENATE(REGEXEXTRACT(B2,"[0-9]*.[0-9]{6}"),",",REGEXEXTRACT(C2,"[0-9]*.[0-9]{6}")) 
 
 >>for 31.4754428611 >> 31.475442 << 6 digits after decimal
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
 Connect google drive
 ```
 from google.colab import drive
 drive.mount('/content/drive')
 ```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
 
 any image in array form visualization
 ```
@@ -19,6 +45,15 @@ import numpy as np
 predicted_image = np.array(v7[:,:,2],  dtype=np.float32) # This would be your image array
 cv2img = cv2_imshow(predicted_image) # This work the same as passing an image
 ```
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<td>
+
 Jax Array to image visualization
 ```
 import cv2
@@ -28,6 +63,14 @@ image_array
 img = onp.array(image_array)
 cv2_imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
 ```
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<td>
 
 quick directory creation
 ```
@@ -36,6 +79,15 @@ OUTPUT_FILES = 'output1'
 !mkdir -p {INPUT_FILES}
 !mkdir -p {OUTPUT_FILES}
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
 
 Delete files in INPUT directory by checking common names from OUTPUT directory
 ```
@@ -58,6 +110,15 @@ for (let index = 0; index < darray1.length; index++) {
 ####################################node execution
 !node goDeleteHolistic.js
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
 
 ffmpeg video to images with a framerate
 ```
@@ -65,6 +126,15 @@ ffmpeg video to images with a framerate
   -i '/content/test.mp4' \
   -r 24 {INPUT_FILES}/out_%09d.png
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
 
 ffmpeg Frames to Video creation and merging two created sreams
 ```
@@ -92,17 +162,47 @@ finalOutput.mp4
 -c:v copy -c:a copy -map 0:v:0 -map 1:a:0 \
 OUTPUT_FILE.mp4
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
 Clean display output Colab
 ```
 from google.colab import output
 output.clear()
 
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
 Clean display output Kaggle
 ```
 from IPython.display import clear_output
 clear_output()
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
 create horizontal image array
 ```
 import cv2
@@ -119,20 +219,154 @@ def show_image(argu):
 
 show_image(metrics['logits'])
 ```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
 Zip a folder or file
 ```
 %cd {total_files}
 %cd ..
 !zip -r folder.zip {total_files}
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
 
 Unzip a folder or file
 ```
 !unzip /content/archive.zip #unzipping the flower images from archive..
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
 Kaggle file download
 ```
 %cd /kaggle/working
 from IPython.display import FileLink
 FileLink(r'ckpts/checkpoint_50/checkpoint')
 ```
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<table>
+<thead>
+<tr>
+<td>
+
+[Direct Google Drive upload](https://github.com/iterative/PyDrive2/blob/main/examples/Upload-and-autoconvert-to-Google-Drive-Format-Example/upload.py)
+```
+!python -m pip install PyDrive2
+```
+```
+%%writefile settings.yaml
+
+client_config_backend: settings
+client_config:
+  client_id: 49621581740-a3fm39vtadtnmhrfmumoijj6jk9i4ij0.apps.googleusercontent.com
+  client_secret: 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
+
+save_credentials: True
+save_credentials_backend: file
+save_credentials_file: credentials.json
+
+get_refresh_token: True
+
+oauth_scope:
+  - https://www.googleapis.com/auth/drive.file
+  - https://www.googleapis.com/auth/drive.install
+```
+
+```
+%%writefile upload.py
+
+
+# Original author: Evren Yurtesen - https://github.com/yurtesen/
+
+"""
+Uploads a file to a specific folder in Google Drive and converts it to a
+Google Doc/Sheet/etc. if possible.
+
+usage: upload.py  
+example usage: upload.py 0B5XXXXY9KddXXXXXXXA2c3ZXXXX /path/to/my/file
+"""
+import sys
+from os import path
+from pydrive2.auth import GoogleAuth
+from pydrive2.drive import GoogleDrive
+from pydrive2.settings import LoadSettingsFile
+
+gauth = GoogleAuth()
+gauth.CommandLineAuth()
+drive = GoogleDrive(gauth)
+
+# If provided arguments incorrect, print usage instructions and exit.
+if len(sys.argv) < 2:
+    print("usage: upload.py  ")
+    exit(1)  # Exit program as incorrect parameters provided.
+
+parentId = sys.argv[1]
+myFilePath = sys.argv[2]
+myFileName = path.basename(sys.argv[2])
+
+# Check if file name already exists in folder.
+file_list = drive.ListFile(
+    {
+        "q": '"{}" in parents and title="{}" and trashed=false'.format(
+            parentId, myFileName
+        )
+    }
+).GetList()
+
+# If file is found, update it, otherwise create new file.
+if len(file_list) == 1:
+    myFile = file_list[0]
+else:
+    myFile = drive.CreateFile(
+        {"parents": [{"kind": "drive#fileLink", "id": parentId}]}
+    )
+
+# Upload new file content.
+myFile.SetContentFile(myFilePath)
+myFile["title"] = myFileName
+# The `convert` flag indicates to Google Drive whether to convert the
+# uploaded file into a Google Drive native format, i.e. Google Sheet for
+# CSV or Google Document for DOCX.
+print("uploading >>>")
+myFile.Upload()
+```
+```
+!python upload.py '1adeXlEvClGh85JYdP1aCPmdvDbbzP7YL' a.zip
+```
+</td>
+</tr>
+</tbody>
+</table>
