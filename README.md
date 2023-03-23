@@ -412,3 +412,38 @@ mesh.show()
 </tr>
 </tbody>
 </table>
+
+
+
+<table>
+<thead>
+<tr>
+<td>
+
+csv file creation
+```
+
+csv_dir = "/content/csvs"
+prefix = ""
+end = ["common_part_pf_filename"]
+ex_b = prefix+end[0]
+
+import os
+csvs_list = [os.path.join(csv_dir, f) for f in os.listdir(csv_dir) if f.__contains__(ex_b)]
+csvs_list.sort(reverse=True)   
+print(csvs_list)
+
+# importing pandas
+import pandas as pd  
+# merging two csv files
+df = pd.concat(map(pd.read_csv, csvs_list), ignore_index=True)
+d = ['name1', 'name2', 'name3'] 
+#if there are 3 columns else add more as requirement
+df.columns = d
+print(df)
+df.to_csv("final_filename.csv")
+```
+</td>
+</tr>
+</tbody>
+</table>
