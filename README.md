@@ -10,6 +10,10 @@ google sheets Regular expression
 ```
 =CONCATENATE(REGEXEXTRACT(B2,"[0-9]*.[0-9]{6}"),",",REGEXEXTRACT(C2,"[0-9]*.[0-9]{6}")) 
 
+or
+
+=CONCATENATE(REGEXEXTRACT(TEXT(A2,"##.########"),"[0-9]*.[0-9]{5}"),":",REGEXEXTRACT(TEXT(B2,"##.########"),"[0-9]*.[0-9]{5}")) 
+
 >>for 31.4754428611 >> 31.475442 << 6 digits after decimal
 ```
 </td>
