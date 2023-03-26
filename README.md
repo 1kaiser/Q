@@ -12,7 +12,7 @@ google sheets Regular expression
 
 or
 
-=CONCATENATE(REGEXEXTRACT(TEXT(A2,"##.########"),"[0-9]*.[0-9]{5}"),":",REGEXEXTRACT(TEXT(B2,"##.########"),"[0-9]*.[0-9]{5}")) 
+=CONCATENATE(REGEXEXTRACT(TEXT(A2,"00.000000"),"[0-9]*.[0-9]{5}"),":",REGEXEXTRACT(TEXT(B2,"00.000000"),"[0-9]*.[0-9]{5}")) 
 
 >>for 31.4754428611 >> 31.475442 << 6 digits after decimal
 ```
