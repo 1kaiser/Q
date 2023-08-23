@@ -6,6 +6,37 @@
 <tr>
 <td>
 
+**creating credentials and saving the credentials as .netrc file in [google colab](https://colab.new/)**
+```
+!echo $HOME
+```
+
+```
+%%writefile ~/.netrc
+machine urs.earthdata.nasa.gov
+    login kroy0001
+    password /#j%kWrPA,8.HRe
+```
+
+```
+!chmod 600 ~/.netrc
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<td>
+
+
+<table>
+<thead>
+<tr>
+<td>
+
 google sheets Regular expression
 ```
 =CONCATENATE(REGEXEXTRACT(B2,"[0-9]*.[0-9]{6}"),",",REGEXEXTRACT(C2,"[0-9]*.[0-9]{6}")) 
