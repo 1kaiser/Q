@@ -32,6 +32,47 @@ machine urs.earthdata.nasa.gov
 </table>
 
 
+<table>
+<thead>
+<tr>
+<td>
+
+google sheets Regular expression
+```
+!sudo apt-get install gdal-bin
+```
+for the given input raster, input vector, output path
+```
+input_raster = '/content/2016_soil_m/SPL4SMGP.006_Geophysical_Data_sm_surface_0_doy2016001_aid0001.tif'
+temp_raster = '/content/resampled_raster.tif'
+shapefile = '/content/boundaryOutputx.shp'
+output_raster = '/content/output.tif'
+
+```
+to create a new file with changed reslution
+```
+!gdalwarp \
+  -tr 0.001 0.001 \
+  -overwrite \
+  {input_raster} \
+  {temp_raster}
+```
+
+to cut to the area in the vector file as mask
+```
+!gdalwarp \
+  -cutline {shapefile} \
+  -dstnodata 0 \
+  -overwrite \
+  {temp_raster} \
+  {output_raster}
+
+```
+</td>
+</tr>
+</tbody>
+</table>
+
 
 <table>
 <thead>
