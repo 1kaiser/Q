@@ -455,6 +455,13 @@ myFile.Upload()
 <td>
 
 OBJ to GLB 3D asset conversion including support for React
+**install latest node version 2023 october**
+```
+!npm install -g n 
+!n 20.8.1
+```
+`!n latest ` <<will install the latest by default but here taken 20.8.1
+
 copy from `/drive` to `/contents` folder
 ```
 !cp -r /content/drive/MyDrive/3D/20220714_132152.obj /content
