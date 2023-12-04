@@ -479,7 +479,7 @@ output = '/content/20220714_132152.obj/20220714_132152.glb'
 ```
 install [`gltfjsx`](https://github.com/pmndrs/gltfjsx) 
 ```
-!npm i gltfjsx
+!npm i gltfjsx@6.2.13
 ```
 the `--transform, -T`     Transform the asset for the web (draco, prune, resize)
 ```
