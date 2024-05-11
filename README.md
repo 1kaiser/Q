@@ -3,8 +3,35 @@
 
 
 
+<table>
+<thead>
+<tr>
+<td>
 
-------------------------------------------------------------------------------------------------------------------------
+**adding subplots nomenclature automatically**
+
+```
+# Define a function to add custom subplot numbering with increasing alphabet letters
+def add_subplot_number(ax, font_size=16):
+    global subplot_count
+    subplot_count += 1
+    ax.annotate(f'({string.ascii_lowercase[subplot_count - 1]})', xy=(0, 1), xycoords='axes fraction', fontsize=font_size, xytext=(10, -10), textcoords='offset points', ha='left', va='top')
+
+```
+function use in main function
+```
+def fun():
+    global subplot_count
+    subplot_count = 0
+    fig = plt.figure(figsize=figsize, dpi=dpi)
+    ax4 = fig.add_axes([width_x*0.5, width_x, parameter_plot_height_ratio])
+    add_subplot_number(ax4)
+
+```
+</td>
+</tr>
+</tbody>
+</table>
 
 <table>
 <thead>
