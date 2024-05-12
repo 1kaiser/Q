@@ -10,6 +10,10 @@
 
 **adding subplots nomenclature automatically**
 
+add import
+```
+import string
+```
 ```
 # Define a function to add custom subplot numbering with increasing alphabet letters
 def add_subplot_number(ax, font_size=16):
