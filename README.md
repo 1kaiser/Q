@@ -562,3 +562,32 @@ df.to_csv("final_filename.csv")
 </tr>
 </tbody>
 </table>
+
+
+<table>
+<thead>
+<tr>
+<td>
+    
+points inside a region of a dataset
+
+
+```
+import geopandas as gpd
+from shapely.geometry import Point
+
+shapefile_path = "../data/shapefile/india_states/india_states.shp"  # Replace with your shapefile path
+gdf = gpd.read_file(shapefile_path)
+polygon = gdf.geometry[0]
+
+## Extract lat/lon from the dataset
+latitudes = dataset['lat'].values
+longitudes = dataset['lon'].values
+
+points_inside = [(lat, lon) for lat in latitudes for lon in longitudes if polygon.contains(Point(lon, lat))]
+points_inside
+```
+</td>
+</tr>
+</tbody>
+</table>
