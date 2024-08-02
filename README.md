@@ -57,6 +57,28 @@ machine urs.earthdata.nasa.gov
 ```
 !chmod 600 ~/.netrc
 ```
+additional downloading code with links in `url.txt`
+
+```
+import time
+from multiprocessing.pool import ThreadPool
+from google.colab import output
+
+def download_url(url):
+    start_time = time.time()
+    !curl -O -b ~/.urs_cookies -c ~/.urs_cookies -L -n {url}
+    return time.time() - start_time
+
+def download_parallel(urls):
+    with ThreadPool(9) as pool:  # Using 9 threads (10 CPUs - 1)
+        for download_time in pool.imap_unordered(download_url, urls):
+            print('time (s):', download_time)
+            output.clear()
+
+# Read URLs from file and start parallel download
+with open("/content/url.txt", 'r') as file:
+    download_parallel(file)
+```
 </td>
 </tr>
 </tbody>
