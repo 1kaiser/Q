@@ -501,7 +501,32 @@ myFile.Upload()
 </tbody>
 </table>
 
+<table>
+<thead>
+<tr>
+<td>
 
+transfer file/folder from a pc to remote pc in Linux `sshpass` is required to be installed 
+
+
+On Ubuntu or Debian: `sudo apt-get install sshpass` or `sudo apt install sshpass`
+
+
+On macOS with Homebrew: `brew install hudochenkov/sshpass/sshpass`
+
+```
+sshpass -p '{password}' scp -rp ./Documents/{folder_name_old}/ {RemoteUsername}@{RemoteIP_addr}:/home/{RemoteUsername}/{folder_name_new}
+
+```
+```
+sshpass -p '{password}' rsync -avz ./Documents/{folder_name_old}/ {RemoteUsername}@{RemoteIP_addr}:/home/{RemoteUsername}/{folder_name_new}
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+    
 <table>
 <thead>
 <tr>
