@@ -37,6 +37,41 @@ def fun():
 </tbody>
 </table>
 
+
+<table>
+<thead>
+<tr>
+<td>
+    
+Conda on Google Colab [CondaColab](https://github.com/conda-incubator/condacolab)
+
+```python
+!pip install -q condacolab
+import condacolab
+condacolab.install()
+```
+
+After the kernel restart, you can optionally add a new cell to check that everything is in place:
+
+```python
+import condacolab
+condacolab.check()
+```
+Once the installation is done, you can use `conda` and/or `mamba` to install the needed packages:
+
+```bash
+!conda install {package_name}
+
+# or, faster:
+!mamba install {package_name}
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
 <table>
 <thead>
 <tr>
