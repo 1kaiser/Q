@@ -541,7 +541,7 @@ myFile.Upload()
 <tr>
 <td>
 
-transfer file/folder from a pc to remote pc in Linux `sshpass` is required to be installed 
+transfer/copy file/folder from a pc to remote pc in Linux `sshpass` is required to be installed 
 
 
 On Ubuntu or Debian: `sudo apt-get install sshpass` or `sudo apt install sshpass`
