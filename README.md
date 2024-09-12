@@ -567,6 +567,7 @@ sshpass -p '{password}' rsync -avz ./Documents/{folder_name_old}/ {RemoteUsernam
 <tr>
 <td>
 
+🪩[![colab_glomap](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ohcr102YsVO2IcItzdxGJe255V0Ahjkw)🧁
 OBJ to GLB 3D asset conversion including support for React
 **install latest node version 2023 october**
 ```
