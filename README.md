@@ -156,6 +156,15 @@ to cut to the area in the vector file as mask
   {output_raster}
 
 ```
+to add georeferencing to any image file i.e. convert png/jpeg file to tiff file
+```
+!gdal_translate \
+  -of GTiff \
+  -a_ullr {left} {top} {right} {bottom} \
+  -a_srs EPSG:4326 \
+  {png_file} \
+  {output_tiff}
+```
 </td>
 </tr>
 </tbody>
