@@ -114,6 +114,23 @@ def download_parallel(urls):
 with open("/content/url.txt", 'r') as file:
     download_parallel(file)
 ```
+alternative downloading code if `url.txt` file is available
+```
+from tqdm import tqdm
+from google.colab import output
+from multiprocessing.pool import ThreadPool
+
+def download_url(url):
+    !wget -q --no-check-certificate -c -P . {url}
+    return None
+
+file = open("/content/url.txt", 'r')
+urls = [line.strip() for line in file]
+
+list(tqdm(ThreadPool(processes=10).imap(download_url, urls), total=len(urls), desc="Downloading"))
+
+#output.clear() #cleaning the display after downloading completion
+```
 </td>
 </tr>
 </tbody>
