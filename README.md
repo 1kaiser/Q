@@ -131,6 +131,35 @@ list(tqdm(ThreadPool(processes=10).imap(download_url, urls), total=len(urls), de
 
 #output.clear() #cleaning the display after downloading completion
 ```
+
+downloading code for `https://lpdaac.usgs.gov/` if `url.txt` file is available, first run request bearer
+```
+!curl --request POST --user kroy0001:/#j%kWrPA,8.HRe --header "Content-Length: 0" "https://appeears.earthdatacloud.nasa.gov/api/login"
+```
+then run 
+```
+from tqdm import tqdm
+from google.colab import output
+from multiprocessing.pool import ThreadPool
+
+files_location = f'files'
+!mkdir files
+
+def download_url(url):
+###########################################################################################################################
+    !curl -s -L -O --remote-header-name \
+      --header "Authorization: Bearer oC0yy-rwxRSG5_9PH-KUpFqhWvtt1OO9pgqBztWYNnF4eZ-9ZMc38nyBSG37Q-5ZF2jQClrLOtsLNPoa6iOu0Q" \
+      --location {url} \
+      --output-dir {files_location}
+###########################################################################################################################
+    return None
+
+
+file = open(f'/content/url.txt', 'r')
+urls = [line.strip() for line in file]
+
+list(tqdm(ThreadPool(processes=10).imap(download_url, urls), total=len(urls), desc="Downloading"))
+```
 </td>
 </tr>
 </tbody>
