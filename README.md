@@ -466,7 +466,7 @@ if splitting required
 ```
 merginng from split
 ```
-!cat part_* > combined_folder_parts.zip
+!cat folder_part_* > combined_folder_parts.zip
 !unzip combined_folder_parts.zip
 ```
     
