@@ -152,7 +152,7 @@ def download_url(url):
       --location {url} \
       --output-dir {files_location}
 ###########################################################################################################################
-    return None
+
 
 
 file = open(f'/content/url.txt', 'r')
