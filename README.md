@@ -450,12 +450,32 @@ show_image(metrics['logits'])
 <tr>
 <td>
 
+
 Zip a folder or file
 ```
-%cd {total_files}
-%cd ..
-!zip -r folder.zip {total_files}
+!zip -q -j -r folder.zip . -i content/{files_location}/*.tif   #folder `.zip` will be created at current location with expensions `*.tif`
 ```
+<table>
+<thead>
+<tr>
+<td>
+    
+if splitting required
+```
+!split -b 1800m folder.zip folder_part_
+```
+merginng from split
+```
+!cat part_* > combined_folder_parts.zip
+!unzip combined_folder_parts.zip
+```
+    
+</td>
+</tr>
+</tbody>
+</table>
+
+
 </td>
 </tr>
 </tbody>
