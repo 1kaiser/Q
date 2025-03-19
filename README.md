@@ -453,6 +453,15 @@ show_image(metrics['logits'])
 
 Zip a folder or file
 ```
+!zip -r /content/output.zip /content/folder
+```
+download in colab after zipping
+```
+from google.colab import files
+files.download("/content/output.zip")
+```
+
+```
 !zip -q -j -r folder.zip . -i content/{files_location}/*.tif   #folder `.zip` will be created at current location with expensions `*.tif`
 ```
 <table>
