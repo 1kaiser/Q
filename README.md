@@ -1,6 +1,36 @@
 # Q
 
+<table>
+<thead>
+<tr>
+<td>
+    
+```
+                      ┌───────────────────────────────┐
+                      │     Touchégg Gesture Setup    │
+                      └───────────────────────────────┘
+Step 1: Install Touchégg daemon (system-wide)
+─────────────────────────────────────────────
+$ wget https://github.com/JoseExposito/touchegg/releases/download/2.0.18/touchegg_2.0.18_amd64.deb
+$ sudo apt install ./touchegg_2.0.18_amd64.deb
+# ✅ Verifies installation:
+$ systemctl status touchegg.service
 
+
+Step 3: Set up client for GUI auto-start
+────────────────────────────────────────
+$ mkdir -p ~/.config/autostart
+$ cp /etc/xdg/autostart/touchegg.desktop ~/.config/autostart/
+
+# Optional: Enhance the desktop file to auto-verify the daemon:
+$ nano ~/.config/autostart/touchegg.desktop
+
+```
+
+</td>
+</tr>
+</tbody>
+</table>
 
 
 <table>
