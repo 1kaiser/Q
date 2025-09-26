@@ -508,6 +508,10 @@ merginng from split
 !cat folder_part_* > combined_folder_parts.zip
 !unzip combined_folder_parts.zip
 ```
+for unzipping again without seeing the permissions `[y]es, [n]o, [A]ll, [N]one, [r]ename: `
+```
+!unzip -o /content/file_name.zip > /dev/null 2>&1
+```
     
 </td>
 </tr>
