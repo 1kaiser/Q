@@ -76,7 +76,8 @@ def fun():
 Conda on Google Colab [CondaColab](https://github.com/conda-incubator/condacolab)
 
 ```python
-!pip install -q condacolab
+!pip install -y uv
+!uv pip install -q condacolab
 import condacolab
 condacolab.install()
 ```
