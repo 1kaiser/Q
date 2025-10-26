@@ -725,6 +725,40 @@ import trimesh
 mesh = trimesh.load_mesh('/content/20220714_132152-transformed.glb')
 mesh.show()
 ```
+
+[`glb on colab cell`](https://colab.research.google.com/github/1kaiser/Media-Segment-Depth-MLP/blob/main/vggt.ipynb#scrollTo=QpjmSJp-WYq5&line=12&uniqifier=1)
+```
+from IPython.display import HTML
+import base64
+
+# Load GLB as base64
+with open("/content/combined_scene.glb", "rb") as f:
+    glb_data = base64.b64encode(f.read()).decode("utf-8")
+
+HTML(f"""
+<iframe srcdoc="
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <script type='module' src='https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js'></script>
+    <style>html, body {{ margin: 0; height: 100%; }}</style>
+  </head>
+  <body>
+    <model-viewer
+      src='data:model/gltf-binary;base64,{glb_data}'
+      alt='3D scene'
+      auto-rotate
+      camera-controls
+      background-color='#FFFFFF'
+      style='width:100%; height:100%;'>
+    </model-viewer>
+  </body>
+</html>
+" width="100%" height="600px" style="border:0;"></iframe>
+""")
+```
+
+
 </td>
 </tr>
 </tbody>
